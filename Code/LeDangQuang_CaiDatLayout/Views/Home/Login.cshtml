@@ -1,0 +1,104 @@
+﻿@model LeDangQuang_CaiDatLayout.Areas.Admin.Data.TaiKhoan
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VinaBook- Hiệu sách online trực tuyến cho mọi người</title>
+</head>
+<link rel="stylesheet" href="~/wwwroot/Css/styleTrangChu.css">
+<link rel="stylesheet" href="~/wwwroot/icon/themify-icons/themify-icons.css">
+<body>
+    <!--Header-->
+    <div class="header">
+        <div class="pre-header">
+            <ul class="create-account">
+                <li><a href="">Đăng Ký</a></li>
+            </ul>
+        </div>
+        <div class="main-header">
+            <img src="~/wwwroot/Images/logo2.jpg" alt="logo2" style="height: 100px; width: auto; float: left; margin-left: 120px;">
+            <select style="width: 200px; height: 30px; margin-left: 100px; margin-top: 35px; border:1px solid lightgreen;">
+                <option value="0">---Tất cả---</option>
+            </select>
+            <input type="text" placeholder="Bạn tìm sách gì? Nhập tên sách hoặc tác giả..." style="width: 400px; height: 30px;border: lightgreen solid 1px; ">
+            <button style="width: 60px; height: 30px; color: white; background-color: #4eb141; border-color: #4eb141;">Tìm kiếm</button>
+            <div style="float: right; width: 200px; height: 30px; color: white; background-color: #4eb141;margin-top: 35px; margin-right: 100px; text-align: center; line-height: 30px;">Giỏ hàng 0 sản phẩm</div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <!--Menu bar-->
+    <div class="menu-bar">
+        <ul class="menu">
+            <li><a href="@Url.Action("Index","Home")"><i class="ti-home"></i> TRANG CHỦ</a></li>
+            <li><a href="@Url.Action("TacGia","Home")"><i class="ti-book"></i> TÁC GIẢ</a></li>
+        </ul>
+    </div>
+    <div class="bodyweb">
+        <div class="login_form">
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div style="background-color: #337ab7; color: white; height: 50px; line-height: 50px; font-size: 20px;padding-left: 20px; top: 0px;">Vui lòng nhập tên đăng nhập & mật khẩu</div>
+                <label for="username" style="margin-left: 20px; font-size: 19px; opacity: 0.6;">Tên đăng nhập: </label>
+                @Html.EditorFor(m => m.TenDN, new { htmlAttributes = new { @class = "taikhoan", @placeholder = "Tên đăng nhập" } })
+                <br />
+                @Html.ValidationMessageFor(model => model.TenDN, "", new { @class = "text-danger margin-loi" })
+                <br />
+                <label for="psw" style="margin-left: 60px; font-size: 19px; opacity: 0.6;">Mật khẩu: </label>
+                @Html.PasswordFor(m => m.MatKhau, new { @class = "matkhau", @placeholder = "Mật khẩu" })
+                <br />
+                @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger margin-loi" })
+                <br />
+                <input type="checkbox" style="margin-top: 20px; margin-left: 160px;"><span>Lưu mật khẩu</span>;
+                <br />
+                <button style="width: 100px; height: 40px; margin-left: 160px; margin-top: 20px; background-color: #337ab7; color: white;">Đăng Nhập</button>
+            }
+            @if (ViewBag.Error != null)
+            {
+                <br />
+                <p class="alert alert-danger" role="alert" style="text-align:center">@ViewBag.error</p>
+            }
+        </div>
+    </div>
+    <div class="clear"></div>
+</body>
+<footer>
+    <div id="thongtin">
+        </br>
+        <p style="padding-left: 20px;"><i class="ti-home"></i> : Số 8 Nguyễn Phi Khanh, P. Tân Định, Quận 1, TP. HCM</p>
+        </br>
+        <p style="padding-left: 20px;"><i class="ti-alarm-clock"></i> : 8h - 21h hằng ngày</p>
+        </br>
+        <p style="padding-left: 20px;"><i class="ti-microphone"></i>:  028.7301.9778</p>
+        </br>
+        </br>
+        <p style="padding-left: 20px;">Hỗ trợ online:  8h - 17h, Thứ Hai đến Thứ Bảy</p>
+        <p style="padding-left: 20px;"><i class="ti-email"></i>: vinabook@gmail.com</p>
+    </div>
+    <div id="quyche">
+        <h3 style="text-align:center"><i class="ti-agenda"></i> Quy chế hoạt động</h3>
+        <ul class="quychehoatdong">
+            <li><a href="">Điều khoản sử dụng</a></li>
+            <li><a href="">Chính sách bảo mật</a></li>
+        </ul>
+    </div>
+    <div id="hotro">
+        <h3 style="text-align:center"><i class="ti-headphone-alt"></i> Hỗ trợ mua hàng</h3>
+        <ul class="hotromuahang">
+            <li><a href="#">Hướng dẫn mua hàng</a></li>
+            <li><a href="#">Phương thức thanh toán</a></li>
+            <li><a href="#">Phương thức giao hàng</a></li>
+            <li><a href="#">Hướng dẫn đổi trả</a></li>
+            <li><a href="#">Câu hỏi thường gặp</a></li>
+        </ul>
+    </div>
+</footer>
+</html>
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

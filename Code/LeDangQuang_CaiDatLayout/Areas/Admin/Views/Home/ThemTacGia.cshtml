@@ -1,0 +1,84 @@
+﻿@model LeDangQuang_CaiDatLayout.Areas.Admin.Data.TacGia
+@{
+    ViewBag.Title = "ThemTacGia";
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+    string ImagePath = "~/Areas/Assets/images/";
+
+}
+@section header{
+    Thêm tác giả
+}
+@using (Html.BeginForm("ThemTacGia", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <table style="margin-left: 90px;">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <tr>
+            <td>
+                <label for="name_au">Tên tác giả*</label>
+            </td>
+            <td>
+                @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control input" } })
+                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+            </td>
+            <td rowspan="5">
+                <label>Ảnh</label>
+                <img id="output" width="200" height="200" style="border: solid 1px black" />
+                <input type="file" id="image_au" name="Anh" class="up_anh" onchange="loadFile(event)" style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="dob_au">Ngày sinh*</label>
+            </td>
+            <td>
+                @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control input_form" } })
+                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="hometown_au">Quê quán*</label>
+            </td>
+            <td>
+                @Html.EditorFor(model => model.QueQuan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QueQuan, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="ts_au">Tiểu sử*</label>
+            </td>
+            <td>
+                @Html.TextAreaFor(model => model.TieuSu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TieuSu, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+    </table>
+    <br />
+    <button style="margin-left: 230px; height: 40px; width: 200px; border-radius: 5px;
+                                    font-size: 25px; background-color: #3399CC; color: black;">
+        Tạo <i class="ti-check"></i>
+    </button>
+    <button style="margin-left:40px;height: 40px; width: 200px; border-radius: 5px;
+                                font-size: 25px; background-color: #3399CC; color: black;">
+        <a href="@Url.Action("QLTacGia", "Home")" style="text-decoration:none; color:black">Hủy bỏ <i class="ti-close"></i></a>
+    </button>
+}
+<hr />
+<br />
+@if (ViewBag.Error != null)
+{
+    <p class="alert alert-danger" role="alert">@ViewBag.Error</p>
+}
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    var loadFile = function (event) {
+        image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>

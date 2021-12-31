@@ -1,0 +1,19 @@
+﻿@model  LeDangQuang_CaiDatLayout.Areas.Admin.Data.Sach
+
+@{
+    ViewBag.Title = "sachinfor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string ImagePath = "~/wwwroot/Images/" + Model.AnhBia;
+}
+<div class="sachinfor">
+    <h3 style="text-align:center">Thông tin sách theo tác giả</h3>
+    <img src="@Url.Content(ImagePath)" alt="nguon---goc--cac--loai" id="anhbia" style="margin-left:100px;padding:10px">
+    <br />
+    <h3 id="tensach" style="margin-top: 40px; padding-left: 40px;">   Tên sách: @Html.DisplayFor(modelItem => Model.TieuDe)</h3>
+    <p id="gia" style="font-size: 30px; font-weight: 700; color: #4eb141;">   Giá: @Html.DisplayFor(modelItem => Model.Gia) VND</p>
+    <p id="tinhtrang">Tình trạng: @(Model.SoLuong >0 ? "Còn hàng" : "Hết hàng")</p>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <p id="mota" style="margin-left: 40px;">Mô tả: @Html.DisplayFor(modelItem => Model.MoTa)</p>
+</div>
+<div class="clear"></div>
+

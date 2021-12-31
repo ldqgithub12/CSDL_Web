@@ -1,0 +1,18 @@
+﻿@model IEnumerable<LeDangQuang_CaiDatLayout.Areas.Admin.Data.TacGia>
+@{
+    ViewBag.Title = "TacGia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="tacgia">
+    <h3 style="text-align:center; margin-top: 10px;">Danh sách tác giả</h3>
+    <ul class="litacgia">
+        @foreach (var item in Model)
+        {
+            <li><a href="@Url.Action("listsach", "Home", new {id = item.MaTG})">@Html.DisplayFor(modelItem=>item.HoTen)</a></li>
+         }
+        
+    </ul>
+    <a href="@Url.Action("Index","Home")" style="float:right; bottom:0; margin-right:10px"><i class="ti-back-left"></i>Quay lại</a>
+</div>
+<div class="clear"></div>
+

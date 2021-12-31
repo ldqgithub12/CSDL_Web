@@ -1,0 +1,998 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3344513F-1122-4759-A55A-3E98AC18EA89}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LeDangQuang_CaiDatLayout</RootNamespace>
+    <AssemblyName>LeDangQuang_CaiDatLayout</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44307</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Assets\css\bootstrap.min.css" />
+    <Content Include="Areas\Assets\css\font-awesome.css" />
+    <Content Include="Areas\Assets\css\font-awesome.min.css" />
+    <Content Include="Areas\Assets\css\sb-admin-2.css" />
+    <Content Include="Areas\Assets\css\style.css" />
+    <Content Include="Areas\Assets\css\styleTrangChu.css" />
+    <Content Include="Areas\Assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\demo-files\demo.css" />
+    <Content Include="Areas\Assets\icon\themify-icons\fonts\themify.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\ie7\ie7.css" />
+    <Content Include="Areas\Assets\icon\themify-icons\ie7\ie7.js" />
+    <Content Include="Areas\Assets\icon\themify-icons\index.html" />
+    <Content Include="Areas\Assets\icon\themify-icons\readme.txt" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\agenda.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\alarm-clock.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\alert.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\align-center.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\align-justify.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\align-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\align-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\anchor.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\android.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\angle-double-down.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\angle-double-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\angle-double-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\angle-double-up.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\angle-down.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\angle-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\angle-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\angle-up.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\announcement.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\apple.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\archive.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrow-circle-down.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrow-circle-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrow-circle-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrow-circle-up.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrow-down.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrow-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrow-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrow-top-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrow-top-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrow-up.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrow.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrows-corner.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrows-horizontal.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\arrows-vertical.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\back-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\back-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\bag.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\bar-chart-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\bar-chart.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\basketball.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\bell.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\blackboard.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\bolt-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\bolt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\book.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\bookmark-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\bookmark.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\briefcase.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\brush-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\brush.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\calendar.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\camera.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\car.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\check-box.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\check.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\clip.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\clipboard.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\close.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\cloud-down.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\cloud-up.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\cloud.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\comment-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\comment.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\comments-smiley.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\comments.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\control-backward.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\control-eject.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\control-forward.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\control-pause.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\control-play.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\control-record.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\control-shuffle.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\control-skip-backward.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\control-skip-forward.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\control-stop.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\credit-card.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\crown.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\css3.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\cup.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\cut.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\dashboard.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\desktop.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\direction-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\direction.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\download.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\dribbble.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\dropbox-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\dropbox.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\drupal.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\email.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\envelope.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\eraser.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\exchange-vertical.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\export.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\eye.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\face-sad.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\face-smile.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\facebook.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\file.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\files.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\filter.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\flag-alt-2.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\flag-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\flag.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\flickr-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\flickr.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\folder.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\fullscreen.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\gallery.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\game.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\gift.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\github.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\google.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\hand-drag.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\hand-open.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\hand-point-down.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\hand-point-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\hand-point-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\hand-point-up.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\hand-stop.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\harddrive.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\harddrives.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\headphone-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\headphone.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\heart-broken.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\heart.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\help-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\help.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\home.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\html5.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\hummer.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\id-badge.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\image.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\import.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\infinite.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\info-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\info.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\ink-pen.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\instagram.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\Italic.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\joomla.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\jsfiddle.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\key.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layers-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layers.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-accordion-list.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-accordion-merged.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-accordion-separated.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-column2-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-column2.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-column3-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-column3.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-column4-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-column4.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-cta-btn-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-cta-btn-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-cta-center.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-cta-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-cta-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-grid2-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-grid2-thumb.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-grid2.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-grid3-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-grid3.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-grid4-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-grid4.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-line-solid.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-list-large-image.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-list-post.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-list-thumb-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-list-thumb.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-media-center-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-media-center.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-media-left-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-media-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-media-overlay-alt-2.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-media-overlay-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-media-overlay.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-media-right-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-media-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-menu-full.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-menu-separated.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-menu-v.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-menu.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-placeholder.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-sidebar-2.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-sidebar-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-sidebar-none.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-sidebar-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-slider-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-slider.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-tab-min.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-tab-v.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-tab-window.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-tab.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-width-default-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-width-default.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout-width-full.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\layout.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\light-bulb.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\line-dashed.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\line-dotted.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\line-double.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\link.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\linkedin.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\linux.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\list-ol.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\list.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\location-arrow.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\location-pin.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\lock.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\loop.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\magnet.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\map-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\map.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\marker-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\marker.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\medall-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\medall.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\menu-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\menu.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\microphone-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\microphone.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\microsoft-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\microsoft.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\minus.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\mobile.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\money.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\more-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\more.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\mouse-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\mouse.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\music-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\music.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\na.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\new-window.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\notepad.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\package.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\paint-bucket.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\paint-roller.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\palette.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\panel.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\paragraph.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\pencil-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\pencil-alt2.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\pencil.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\pie-chart.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\pin-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\pin.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\pin2.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\pinterest-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\pinterest.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\plug.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\plus.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\power-off.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\printer.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\pulse.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\quote-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\quote-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\receipt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\reddit.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\reload.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\rocket.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\rss-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\rss.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\ruler-alt-2.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\ruler-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\ruler-pencil.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\ruler.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\save-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\save.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\search.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\server.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\settings.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\share-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\share.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\sharethis-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\sharethis.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\shield.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\shift-left-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\shift-left.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\shift-right-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\shift-right.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\shine.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\shopping-cart-full.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\shopping-cart.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\shortcode.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\signal.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\skype.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\slice.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\smallcap.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\soundcloud.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\split-h.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\split-v-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\split-v.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\spray.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\stack-overflow.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\stamp.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\star.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\stats-down.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\stats-up.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\support.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\tablet.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\tag.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\target.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\text.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\themify-favicon-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\themify-favicon.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\themify-logo.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\thought.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\thumb-down.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\thumb-up.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\ticket.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\time.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\timer.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\trash.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\trello.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\truck.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\tumblr-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\tumblr.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\twitter-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\twitter.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\underline.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\unlink.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\unlock.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\upload.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\uppercase.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\user.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\vector.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\video-camera.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\video-clapper.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\view-grid.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\view-list-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\view-list.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\vimeo-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\vimeo.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\volume.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\wallet.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\wand.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\wheelchair.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\widget-alt.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\widget.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\widgetized.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\window.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\wordpress.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\world.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\write.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\yahoo.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\youtube.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\zip.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\zoom-in.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\SVG\zoom-out.svg" />
+    <Content Include="Areas\Assets\icon\themify-icons\themify-icons.css" />
+    <Content Include="Areas\Assets\images\logo2.jpg" />
+    <Content Include="Areas\Assets\images\Namcao.jpg" />
+    <Content Include="Areas\Assets\images\preview16.jpg" />
+    <Content Include="Areas\Assets\images\songmon.jpg" />
+    <Content Include="Areas\Assets\images\thoxuandieu.jpg" />
+    <Content Include="Areas\Assets\images\ToHoai.jpg" />
+    <Content Include="Areas\Assets\images\ToHuu.jpg" />
+    <Content Include="Areas\Assets\images\tpchiphep.jpg" />
+    <Content Include="Areas\Assets\images\tpdemen.jpg" />
+    <Content Include="Areas\Assets\images\tplaohac.jpg" />
+    <Content Include="Areas\Assets\images\tpquenguoi.jpg" />
+    <Content Include="Areas\Assets\images\tpsodo.jpg" />
+    <Content Include="Areas\Assets\images\tuay.jpg" />
+    <Content Include="Areas\Assets\images\vutrongphung.jpg" />
+    <Content Include="Areas\Assets\images\XuanDieu.jpg" />
+    <Content Include="Areas\Assets\js\bootstrap.min.js" />
+    <Content Include="Areas\Assets\js\jquery.min.js" />
+    <Content Include="Areas\Assets\js\sb-admin-2.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="wwwroot\Css\styleTrangChu.css" />
+    <Content Include="wwwroot\icon\themify-icons\demo-files\demo.css" />
+    <Content Include="wwwroot\icon\themify-icons\fonts\themify.svg" />
+    <Content Include="wwwroot\icon\themify-icons\ie7\ie7.css" />
+    <Content Include="wwwroot\icon\themify-icons\ie7\ie7.js" />
+    <Content Include="wwwroot\icon\themify-icons\index.html" />
+    <Content Include="wwwroot\icon\themify-icons\readme.txt" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\agenda.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\alarm-clock.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\alert.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\align-center.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\align-justify.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\align-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\align-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\anchor.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\android.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\angle-double-down.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\angle-double-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\angle-double-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\angle-double-up.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\angle-down.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\angle-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\angle-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\angle-up.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\announcement.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\apple.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\archive.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrow-circle-down.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrow-circle-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrow-circle-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrow-circle-up.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrow-down.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrow-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrow-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrow-top-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrow-top-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrow-up.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrow.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrows-corner.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrows-horizontal.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\arrows-vertical.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\back-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\back-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\bag.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\bar-chart-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\bar-chart.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\basketball.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\bell.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\blackboard.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\bolt-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\bolt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\book.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\bookmark-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\bookmark.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\briefcase.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\brush-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\brush.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\calendar.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\camera.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\car.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\check-box.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\check.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\clip.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\clipboard.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\close.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\cloud-down.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\cloud-up.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\cloud.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\comment-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\comment.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\comments-smiley.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\comments.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\control-backward.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\control-eject.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\control-forward.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\control-pause.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\control-play.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\control-record.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\control-shuffle.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\control-skip-backward.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\control-skip-forward.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\control-stop.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\credit-card.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\crown.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\css3.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\cup.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\cut.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\dashboard.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\desktop.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\direction-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\direction.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\download.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\dribbble.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\dropbox-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\dropbox.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\drupal.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\email.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\envelope.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\eraser.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\exchange-vertical.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\export.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\eye.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\face-sad.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\face-smile.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\facebook.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\file.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\files.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\filter.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\flag-alt-2.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\flag-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\flag.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\flickr-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\flickr.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\folder.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\fullscreen.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\gallery.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\game.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\gift.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\github.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\google.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\hand-drag.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\hand-open.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\hand-point-down.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\hand-point-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\hand-point-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\hand-point-up.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\hand-stop.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\harddrive.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\harddrives.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\headphone-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\headphone.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\heart-broken.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\heart.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\help-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\help.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\home.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\html5.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\hummer.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\id-badge.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\image.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\import.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\infinite.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\info-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\info.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\ink-pen.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\instagram.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\Italic.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\joomla.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\jsfiddle.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\key.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layers-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layers.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-accordion-list.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-accordion-merged.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-accordion-separated.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-column2-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-column2.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-column3-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-column3.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-column4-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-column4.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-cta-btn-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-cta-btn-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-cta-center.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-cta-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-cta-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-grid2-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-grid2-thumb.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-grid2.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-grid3-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-grid3.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-grid4-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-grid4.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-line-solid.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-list-large-image.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-list-post.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-list-thumb-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-list-thumb.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-media-center-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-media-center.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-media-left-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-media-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-media-overlay-alt-2.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-media-overlay-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-media-overlay.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-media-right-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-media-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-menu-full.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-menu-separated.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-menu-v.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-menu.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-placeholder.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-sidebar-2.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-sidebar-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-sidebar-none.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-sidebar-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-slider-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-slider.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-tab-min.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-tab-v.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-tab-window.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-tab.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-width-default-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-width-default.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout-width-full.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\layout.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\light-bulb.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\line-dashed.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\line-dotted.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\line-double.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\link.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\linkedin.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\linux.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\list-ol.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\list.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\location-arrow.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\location-pin.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\lock.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\loop.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\magnet.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\map-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\map.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\marker-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\marker.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\medall-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\medall.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\menu-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\menu.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\microphone-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\microphone.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\microsoft-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\microsoft.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\minus.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\mobile.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\money.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\more-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\more.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\mouse-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\mouse.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\music-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\music.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\na.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\new-window.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\notepad.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\package.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\paint-bucket.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\paint-roller.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\palette.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\panel.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\paragraph.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\pencil-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\pencil-alt2.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\pencil.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\pie-chart.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\pin-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\pin.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\pin2.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\pinterest-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\pinterest.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\plug.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\plus.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\power-off.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\printer.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\pulse.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\quote-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\quote-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\receipt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\reddit.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\reload.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\rocket.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\rss-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\rss.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\ruler-alt-2.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\ruler-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\ruler-pencil.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\ruler.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\save-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\save.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\search.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\server.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\settings.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\share-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\share.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\sharethis-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\sharethis.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\shield.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\shift-left-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\shift-left.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\shift-right-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\shift-right.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\shine.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\shopping-cart-full.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\shopping-cart.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\shortcode.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\signal.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\skype.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\slice.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\smallcap.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\soundcloud.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\split-h.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\split-v-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\split-v.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\spray.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\stack-overflow.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\stamp.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\star.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\stats-down.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\stats-up.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\support.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\tablet.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\tag.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\target.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\text.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\themify-favicon-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\themify-favicon.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\themify-logo.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\thought.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\thumb-down.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\thumb-up.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\ticket.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\time.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\timer.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\trash.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\trello.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\truck.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\tumblr-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\tumblr.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\twitter-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\twitter.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\underline.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\unlink.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\unlock.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\upload.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\uppercase.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\user.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\vector.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\video-camera.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\video-clapper.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\view-grid.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\view-list-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\view-list.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\vimeo-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\vimeo.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\volume.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\wallet.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\wand.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\wheelchair.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\widget-alt.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\widget.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\widgetized.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\window.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\wordpress.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\world.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\write.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\yahoo.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\youtube.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\zip.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\zoom-in.svg" />
+    <Content Include="wwwroot\icon\themify-icons\SVG\zoom-out.svg" />
+    <Content Include="wwwroot\icon\themify-icons\themify-icons.css" />
+    <Content Include="wwwroot\Images\1.jpg" />
+    <Content Include="wwwroot\Images\2.jpg" />
+    <Content Include="wwwroot\Images\3.jpg" />
+    <Content Include="wwwroot\Images\4.jpg" />
+    <Content Include="wwwroot\Images\5.jpg" />
+    <Content Include="wwwroot\Images\hanh-trinh-cua-linh-hon.png" />
+    <Content Include="wwwroot\Images\lich-su-van-minh-the-gioi.png" />
+    <Content Include="wwwroot\Images\logo2.jpg" />
+    <Content Include="wwwroot\Images\nam-cao-truyen-ngan-hay-chon-loc.png" />
+    <Content Include="wwwroot\Images\Namcao.jpg" />
+    <Content Include="wwwroot\Images\nguon---goc--cac--loai.png" />
+    <Content Include="wwwroot\Images\o-cua-thien.jpg" />
+    <Content Include="wwwroot\Images\preview16.jpg" />
+    <Content Include="wwwroot\Images\sach-moi-tuyen-chon.png" />
+    <Content Include="wwwroot\Images\sach-mua-nhieu.png" />
+    <Content Include="wwwroot\Images\songmon.jpg" />
+    <Content Include="wwwroot\Images\thoxuandieu.jpg" />
+    <Content Include="wwwroot\Images\tpchieuchieu.jpg" />
+    <Content Include="wwwroot\Images\tpchipheo.jpg" />
+    <Content Include="wwwroot\Images\tpdemen.jpg" />
+    <Content Include="wwwroot\Images\tpdoithua.jpg" />
+    <Content Include="wwwroot\Images\tpgiongto.jpg" />
+    <Content Include="wwwroot\Images\tpkhachno.jpg" />
+    <Content Include="wwwroot\Images\tplaohac.jpg" />
+    <Content Include="wwwroot\Images\tpmauvahoa.jpg" />
+    <Content Include="wwwroot\Images\tpmientay.jpg" />
+    <Content Include="wwwroot\Images\tpquenguoi.jpg" />
+    <Content Include="wwwroot\Images\tpsodo.jpg" />
+    <Content Include="wwwroot\Images\tpthotho.jpg" />
+    <Content Include="wwwroot\Images\tptuyentap.jpg" />
+    <Content Include="wwwroot\Images\tptuyentapvtp.jpg" />
+    <Content Include="wwwroot\Images\tpvietbac.jpg" />
+    <Content Include="wwwroot\Images\tpvode.jpg" />
+    <Content Include="wwwroot\Images\tuay.jpg" />
+    <Content Include="wwwroot\Images\vince-van-gogh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TacGiasController.cs" />
+    <Compile Include="Areas\Admin\Data\Sach.cs" />
+    <Compile Include="Areas\Admin\Data\TacGia.cs" />
+    <Compile Include="Areas\Admin\Data\TaiKhoan.cs" />
+    <Compile Include="Areas\Admin\Data\VnBook.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\Layout.cshtml" />
+    <Content Include="Areas\Assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Assets\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Assets\icon\themify-icons\fonts\themify.eot" />
+    <Content Include="Areas\Assets\icon\themify-icons\fonts\themify.ttf" />
+    <Content Include="Areas\Assets\icon\themify-icons\fonts\themify.woff" />
+    <Content Include="Areas\Assets\icon\themify-icons\Themify IconFonts 5-23-2014.json" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\QLTacGia.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\ThemTacGia.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\SuaTacGia.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\XoaTacGia.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\DangNhap.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\TacGias\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TacGias\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\TacGias\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\TacGias\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TacGias\Index.cshtml" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\TacGia.cshtml" />
+    <Content Include="Views\Home\listsach.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\sachinfor.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="wwwroot\icon\themify-icons\fonts\themify.eot" />
+    <Content Include="wwwroot\icon\themify-icons\fonts\themify.ttf" />
+    <Content Include="wwwroot\icon\themify-icons\fonts\themify.woff" />
+    <Content Include="wwwroot\icon\themify-icons\Themify IconFonts 5-23-2014.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54930</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44307/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

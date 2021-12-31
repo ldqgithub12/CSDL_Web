@@ -1,0 +1,187 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VinaBook- Hiệu sách online trực tuyến cho mọi người</title>
+    <link rel="stylesheet" href="~/wwwroot/Css/styleTrangChu.css">
+    <link rel="stylesheet" href="~/wwwroot/icon/themify-icons/themify-icons.css">
+    <style>
+    </style>
+</head>
+<body>
+    <!--Header-->
+    <div class="header">
+        <div class="pre-header">
+            <ul class="create-account">
+                @if (Session["idUser"] == null)
+                {
+                <li><a href="">Đăng Ký</a></li>
+                }
+                else
+                {
+                   <li>@Session["HoTen"]</li>
+                }
+            </ul>
+        </div>
+        <div class="main-header">
+            <img src="~/wwwroot/Images/logo2.jpg" alt="logo2" style="height: 100px; width: auto; float: left; margin-left: 120px;">
+            <select style="width: 200px; height: 30px; margin-left: 100px; margin-top: 35px; border:1px solid lightgreen;">
+                <option value="0">---Tất cả---</option>
+            </select> 
+            <input type="text" placeholder="Bạn tìm sách gì? Nhập tên sách hoặc tác giả..." style="width: 400px; height: 30px;border: lightgreen solid 1px; ">
+            <button style="width: 60px; height: 30px; color: white; background-color: #4eb141; border-color: #4eb141;">Tìm kiếm</button>
+            <div style="float: right; width: 200px; height: 30px; color: white; background-color: #4eb141;margin-top: 35px; margin-right: 100px; text-align: center; line-height: 30px;">Giỏ hàng 0 sản phẩm</div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <!--Menu bar-->
+    <div class="menu-bar">
+        <ul class="menu">
+            <li>@Html.ActionLink("TRANG CHỦ", "Index", "Home")</li>
+            <li>@Html.ActionLink("TÁC GIẢ", "TacGia", "Home")</li>
+            @if (Session["idUser"] == null)
+            {
+                <li>
+                    <a href="@Url.Action("Login", "Home")"><i class="ti-user"></i> ĐĂNG NHẬP</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="@Url.Action("Logout", "Home")"><i class="ti-user"></i> ĐĂNG XUẤT</a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="bodyweb">
+        <div class="dmspdiv">
+            <ul class="dmsp">
+                <li style="height: 30px; text-align: center; font-size: large; color: white; background-color: #4eb141;">DANH MỤC SẢN PHẨM</li>
+                <li><a href="">VĂN HÓA PHẨM TUYỂN CHỌN</a></li>
+                <li><a href="">SÁCH KHAI TÂM PHÁT HÀNH</a></li>
+                <li><a href="">KHAI TÂM KHUYÊN ĐỌC</a></li>
+                <li><a href="">Tâm linh-Tôn giáo</a></li>
+                <li><a href="">Khoa học-Triết học</a></li>
+                <li><a href="">Kinh tế-Chính trị</a></li>
+                <li><a href="">Lịch sử</a></li>
+                <li><a href="">Văn hóa-Nghệ thuật</a></li>
+                <li><a href="">Văn học</a></li>
+                <li><a href="">Tâm lý- Nghệ thuật sống</a></li>
+                <li><a href="">Y học-Thực dưỡng</a></li>
+                <li><a href="">Giáo dục-Gia đình</a></li>
+                <li><a href="">Kỹ năng sống</a></li>
+            </ul>
+        </div>
+        <!--Slider-->
+        @RenderBody();
+        <div class="clear"></div>
+        <!--sach moi tuyen chon-->
+        <div class="smtc">
+            <img src="~/wwwroot/Images/sach-moi-tuyen-chon.png" alt="sach-moi-tuyen-chon" style="float: left; width: 27%; height: 430px;">
+            <div class="newbook">
+                <img src="~/wwwroot/Images/nguon---goc--cac--loai.png" alt="nguon---goc--cac--loai" style="margin-left: 38px; margin-top: 15px; height: 60% ;width:70% ">
+                <p style="font-size: large; font-weight: 700; margin-left: 10px; margin-top: 10px;">Nguồn gốc các loài</p>
+                <p style="margin-left: 10px; margin-top: 30px; opacity: 0.5;">Charles Darwin</p>
+                <div>
+                    <p style="margin-left: 10px;font-size: x-large; font-weight: 800;margin-top: 5px;color: limegreen; float: left;">131.750 đ</p>
+                    <button style="float: left; margin-left: 10px; margin-top: 8px; border-radius: 5px; color: white; background-color: limegreen;">Mời mua hàng</button>
+                </div>
+            </div>
+
+            <div class="newbook">
+                <img src="~/wwwroot/Images/hanh-trinh-cua-linh-hon.png" alt="hanh-trinh-cua-linh-hon" style="margin-left: 45px; margin-top: 15px; height: 60%; width: 70%">
+                <p style="font-size: large; font-weight: 700; margin-left: 10px; margin-top: 10px;">Hành trình của linh hồn</p>
+                <p style="margin-left: 10px; margin-top: 30px; opacity: 0.5;">Michael Newton</p>
+                <div>
+                    <p style="margin-left: 10px;font-size: x-large; font-weight: 800;margin-top: 5px;color: limegreen; float: left;">109.600 đ</p>
+                    <button style="float: left; margin-left: 10px; margin-top: 8px; border-radius: 5px; color: white; background-color: limegreen;">Mời mua hàng</button>
+                </div>
+            </div>
+
+            <div class="newbook">
+                <img src="~/wwwroot/Images/lich-su-van-minh-the-gioi.png" alt="lich-su-van-minh-the-gioi" style="margin-left: 10px; margin-top: 15px; height: 60%; width: 70%">
+                <p style="font-size: large; font-weight: 700; margin-left: 10px; margin-top: 10px;">Lịch sử văn minh thế giới</p>
+                <p style="margin-left: 10px; margin-top: 30px; opacity: 0.5;">Will Durant</p>
+                <div>
+                    <p style="margin-left: 10px;font-size: x-large; font-weight: 800;margin-top: 5px;color: limegreen; float: left;">455.000 đ</p>
+                    <button style="float: left; margin-left: 10px; margin-top: 8px; border-radius: 5px; color: white; background-color: limegreen;">Mời mua hàng</button>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <!--Sach mua nhieu nhat-->
+        <div class="smnn">
+            <img src="~/wwwroot/Images/sach-mua-nhieu.png" alt="sach-moi-tuyen-chon" style="float: left; width: 27%; height: 430px;">
+            <div class="bestbook">
+                <img src="~/wwwroot/Images/o-cua-thien.jpg" alt="o-cua-thien" style="margin-left: 38px; margin-top: 15px; height: 60%; width: 70%">
+                <p style="font-size: large; font-weight: 700; margin-left: 10px; margin-top: 10px;">Cuộc sống nhìn từ ô cửa thiền</p>
+                <p style="margin-left: 10px; margin-top: 30px; opacity: 0.5;">Michael Newton</p>
+                <div>
+                    <p style="margin-left: 10px;font-size: x-large; font-weight: 800;margin-top: 5px;color: limegreen; float: left;">122.400 đ</p>
+                    <button style="float: left; margin-left: 10px; margin-top: 8px; border-radius: 5px; color: white; background-color: limegreen;">Mời mua hàng</button>
+                </div>
+            </div>
+
+            <div class="bestbook">
+                <img src="~/wwwroot/Images/vince-van-gogh.png" alt="vince-van-gogh" style="margin-left: 25px; margin-top: 15px; height: 60%; width: 70%">
+                <p style="font-size: large; font-weight: 700; margin-left: 10px; margin-top: 10px;">Vince Van Gogh</p>
+                <p style="margin-left: 10px; margin-top: 30px; opacity: 0.5;">Gerand Denizeau</p>
+                <div>
+                    <p style="margin-left: 10px;font-size: x-large; font-weight: 800;margin-top: 5px;color: limegreen; float: left;">239.200 đ</p>
+                    <button style="float: left; margin-left: 10px; margin-top: 8px; border-radius: 5px; color: white; background-color: limegreen;">Mời mua hàng</button>
+                </div>
+            </div>
+
+            <div class="bestbook">
+                <img src="~/wwwroot/Images/nguon---goc--cac--loai.png" alt="nguon---goc--cac--loai" style="margin-left: 38px; margin-top: 15px; height: 60%; width: 70%">
+                <p style="font-size: large; font-weight: 700; margin-left: 10px; margin-top: 10px;">Nguồn gốc các loài</p>
+                <p style="margin-left: 10px; margin-top: 30px; opacity: 0.5;">Charles Darwin</p>
+                <div>
+                    <p style="margin-left: 10px;font-size: x-large; font-weight: 800;margin-top: 5px;color: limegreen; float: left;">131.750 đ</p>
+                    <button style="float: left; margin-left: 10px; margin-top: 8px; border-radius: 5px; color: white; background-color: limegreen;">Mời mua hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="camnhan">
+        <h2 style="text-align: center; padding-top: 30px; color: lightgray;">CẢM NHẬN VỀ VINABOOK</h2>
+        <p style="width: 60%; margin: 0 auto; font-style: italic; font-size: 20px; padding-top: 30px; color:black;">"Mình rất hài lòng với dịch vụ của Sách Khai Tâm. Tất cả đều là sách có giá trị và khó tìm, bọc sách bằng plastic rất cẩn thận, gói hàng chu đáo, bookmark đơn giản nhưng ý nghĩa với các câu thơ của thiền sư Nhất Hạnh. Đặc biệt là khách hàng có thể chuyển tiền sau khi đã nhận sách, không biết nếu khách quỵt luôn không trả thì thế nào, nhưng rõ ràng SKT rất tin tưởng khách hàng, lòng tin cho đi sẽ nhận lại thôi. Tên "Khai Tâm" cũng rất ý nghĩa. Chúc SKT thành công và ngày càng được đông đảo bạn đọc biết đến"</p>
+        <P style="text-align:center; margin-top: 20px; font-style: italic; font-size: 20px; color: black;">--Nguyễn An--</P>
+    </div>
+    <footer>
+        <div id="thongtin">
+            <br />
+            <p style="padding-left: 20px;">Địa chỉ: Số 8 Nguyễn Phi Khanh, P. Tân Định, Quận 1, TP. HCM</p>
+            <br />
+            <p style="padding-left: 20px;">Hoạt động từ: 8h - 21h hằng ngày</p>
+            <br />
+            <p style="padding-left: 20px;">Phone:  028.7301.9778</p>
+            <br />
+            <br />
+            <p style="padding-left: 20px;">Hỗ trợ online:  8h - 17h, Thứ Hai đến Thứ Bảy</p>
+            <p style="padding-left: 20px;">Email: vinabook@gmail.com</p>
+        </div>
+        <div id="quyche">
+            <h3 style="text-align:center">Quy chế hoạt động</h3>
+            <ul class="quychehoatdong">
+                <li><a href="">Điều khoản sử dụng</a></li>
+                <li><a href="">Chính sách bảo mật</a></li>
+            </ul>
+        </div>
+        <div id="hotro">
+            <h3 style="text-align:center">Hỗ trợ mua hàng</h3>
+            <ul class="hotromuahang">
+                <li><a href="#">Hướng dẫn mua hàng</a></li>
+                <li><a href="#">Phương thức thanh toán</a></li>
+                <li><a href="#">Phương thức giao hàng</a></li>
+                <li><a href="#">Hướng dẫn đổi trả</a></li>
+                <li><a href="#">Câu hỏi thường gặp</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

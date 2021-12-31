@@ -1,0 +1,70 @@
+﻿@model LeDangQuang_CaiDatLayout.Areas.Admin.Data.TacGia
+@{
+    ViewBag.Title = "XoaTacGia";
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@section header{
+    Bạn có chắc chắn muốn xóa bản ghi này ?
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table style="margin-left: 90px;">
+        <tr>
+            <td>
+                <label for="name_au">Tên tác giả</label>
+            </td>
+            <td>
+                <p>@Html.DisplayFor(model => model.HoTen)</p>
+            </td>
+            <td rowspan="5">
+                @{ 
+                    string ImagePath = "~/Areas/Assets/images/" + Model.Anh;
+                }
+                <label>Ảnh</label>
+                <img id="output" width="200" height="200" style="border: solid 1px black" src="@Url.Content(ImagePath)" />
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="dob_au">Ngày sinh</label>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.NgaySinh)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="hometown_au">Quê quá</label>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.QueQuan)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="ts_au">Tiểu sử</label>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.TieuSu)
+            </td>
+        </tr>
+    </table>
+    <br />
+    <button style="margin-left: 230px; height: 40px; width: 200px; border-radius: 5px;
+                                font-size: 25px; background-color: #3399CC; color: black;">
+        Đồng ý <i class="ti-check"></i>
+    </button>
+    <button style="margin-left:40px;height: 40px; width: 200px; border-radius: 5px;
+                                font-size: 25px; background-color: #3399CC; color: black;">
+        <a href="@Url.Action("QLTacGia","Home")" style="text-decoration:none; color:black">Hủy bỏ <i class="ti-close"></i></a>
+    </button>
+}
+@if (ViewBag.Error != null)
+{
+    <p class="alert alert-danger" role="alert">@ViewBag.Error</p>
+}
+
